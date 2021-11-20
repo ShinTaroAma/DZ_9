@@ -22,12 +22,28 @@ BULLET_SPEED = 0.6
 
 
 
-def move():
-    pass
-
-
 def draw():
-    pass
+    for y in range(HEIGHT):
+        result = ""
+        for x in range(WIDTH):
+            char = " "
+            
+            for bullet in bullets:
+                if x == round(bullet["x"]) and y == round(bullet["y"]):
+                    char = "."
+            for brick in bricks:
+                if y == 0 and x == brick["x"]:
+                    char = str(brick["val"])
+            if y == 0:
+                for b in bricks:
+                    if x == b["x"]:
+                        char = str(b["val"])
+                        
+            if x  == ship["x"]  and  y == HEIGHT - 1:
+                char = "T"
+            result +=char
+        print(result)
+
 
 def def press_instruction(key):
     pass
