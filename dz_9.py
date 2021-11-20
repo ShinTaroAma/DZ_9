@@ -45,6 +45,17 @@ def draw():
         print(result)
 
 
-def def press_instruction(key):
-    pass
+def press_instruction(key):
+    global ship
+    if key == pynput.keyboard.Key.right:
+        if ship["x"] < WIDTH - 1:
+            ship["x"] += 1
+        
+    elif key == pynput.keyboard.Key.left:
+        if ship["x"] > 0:
+            ship["x"] -= 1
+    elif key == pynput.keyboard.Key.space:
+        bullets.append({"x": ship["x"], "y": HEIGHT - 1})
+
+pynput.keyboard.Listener(on_press = press_instruction).start()
 
