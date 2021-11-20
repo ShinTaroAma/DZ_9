@@ -20,7 +20,16 @@ HEIGHT = 10
 WIDTH = 40
 BULLET_SPEED = 0.6
 
-
+def move():
+    for b in bullets:
+        b["y"] -= BULLET_SPEED
+        if  b["y"] < 1:
+            for brick in bricks:
+                if b["x"] == brick ["x"]:
+                    brick["val"] -= 1
+                    if brick["val"] == 0:
+                        bricks.remove(brick)
+            bullets.remove(b)
 
 def draw():
     for y in range(HEIGHT):
