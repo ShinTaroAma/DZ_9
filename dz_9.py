@@ -68,3 +68,9 @@ def press_instruction(key):
 
 pynput.keyboard.Listener(on_press = press_instruction).start()
 
+while(True):
+    os.system('cls')
+    draw()
+    move()
+    time.sleep(0.1)
+
